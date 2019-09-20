@@ -151,7 +151,8 @@ if (count($arr_uri) == 0) {
 } else {
 	/* Stream Page */
 	$stream = $arr_uri[2];
-	$config = $arr_config[$selected_conf];
+	$config = $arr_streams[$selected_conf];
+	$link = $config['urls'][$stream];
 
 	switch ($config['type']) {
 		case "scaleengine":
@@ -179,16 +180,26 @@ if (count($arr_uri) == 0) {
 			       plugins: {core: [LevelSelector], playback: []},
 			});
 			</script>
-			
+
 			<p><a href="rtmp://<?=$secrets['username']?>-vsn.secdn.net/<?=$secrets['username']?>-live/play/<?=$stream?>">RTMP Link (Lower Latency)</a></p>
 
 <?php
 			break;
 
 		case "youtube":
+			?>
+
+			<iframe width="720" height="400" src="<?=$link?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+			<?php
 			break;
 			
 		case "link":
+			?>
+
+			<a href="<?=$link?>">Click to watch: <?=$stream?></a>
+
+			<?php
 			break;
 	}
 }
