@@ -127,6 +127,12 @@ if (isset($arr_uri[0])) {
 				<li class="dd-item">
 					&nbsp;
 				</li>
+				<li class="dd-item">
+					&nbsp;
+				</li>
+				<li class="dd-item">
+					&nbsp;
+				</li>
 			</ul>
 			<section id="footer">
 			</section>
