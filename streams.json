@@ -42,7 +42,7 @@
 		"description": "Not a real stream",
 		"type": "youtube",
 		"urls": {
-			"bsdnow300": "https://www.youtube.com/watch?v=3lCq3BsSAHw"
+			"bsdnow300": "https://www.youtube.com/embed/3lCq3BsSAHw"
 		}
 	}
 }

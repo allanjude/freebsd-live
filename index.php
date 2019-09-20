@@ -130,10 +130,8 @@ if (isset($arr_uri[0])) {
 				<li class="dd-item">
 					&nbsp;
 				</li>
-				<li class="dd-item">
-					&nbsp;
-				</li>
 			</ul>
+
 			<section id="footer">
 			</section>
 		</div>
@@ -201,6 +199,8 @@ if (count($arr_uri) == 0) {
 		case "youtube":
 			?>
 
+			<h1><?=$selected_conf?> - <?=$stream?></h1>
+			<p><?=$arr_streams[$selected_conf]['description']?></p>
 			<iframe width="720" height="400" src="<?=$link?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 			<?php
@@ -209,6 +209,8 @@ if (count($arr_uri) == 0) {
 		case "link":
 			?>
 
+			<h1><?=$selected_conf?> - <?=$stream?></h1>
+			<p><?=$arr_streams[$selected_conf]['description']?></p>
 			<a href="<?=$link?>">Click to watch: <?=$stream?></a>
 
 			<?php
