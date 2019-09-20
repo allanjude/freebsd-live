@@ -122,6 +122,12 @@ if (isset($arr_uri[0])) {
 			<?php endforeach; /* conference */ ?>
 
 			</ul>
+
+			<ul class="topics">
+				<li class="dd-item">
+					&nbsp;
+				</li>
+			</ul>
 			<section id="footer">
 			</section>
 		</div>
