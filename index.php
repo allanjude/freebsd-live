@@ -162,7 +162,7 @@ if (count($arr_uri) == 0) {
 <?php
 } else {
 	/* Stream Page */
-	$stream = $arr_uri[2];
+	$stream = $arr_uri[1];
 	$config = $arr_streams[$selected_conf];
 	$link = $config['urls'][$stream];
 
@@ -173,7 +173,7 @@ if (count($arr_uri) == 0) {
 			$arr_details = seapi($keys, "stream_metadata", "GET", $stream, $error);
 ?>
 
-			<h1><?=$conference?> - <?=$stream?></h1>
+			<h1><?=$selected_conf?> - <?=$stream?></h1>
 			<p><?=$arr_streams[$selected_conf]['description']?></p>
 
 			<script type="text/javascript" src="//<?=$secrets['username']?>-embed.secdn.net/clappr/0.3.8/clappr.min.js"></script>
