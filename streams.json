@@ -1,0 +1,48 @@
+{
+	"AsiaBSDCon": {
+		"description": "AsiaBSDCon and Tokyo User Group",
+		"type": "scaleengine",
+	},
+	"BSDCan": {
+		"description": "BSDCan",
+		"type": "scaleengine",
+	},
+	"BSDNow": {
+		"description": "BSDNow.tv Weekly Podcast",
+		"type": "scaleengine",
+	},
+	"EuroBSDCon": {
+		"description": "EuroBSDCon",
+		"type": "scaleengine",
+	},
+	"BAFUG": {
+		"description": "Bay Area FreeBSD User Group",
+		"type": "scaleengine",
+	},
+	"BSDPL": {
+		"description": "Polish BSD User Group",
+		"type": "scaleengine",
+	},
+	"NYCBUG": {
+		"description": "New York City BSD User Group",
+		"type": "scaleengine",
+	},
+	"PLUG": {
+		"description": "Portland Linux/BSD User Group",
+		"type": "scaleengine",
+	},
+	"ZZZLink": {
+		"description": "A link",
+		"type": "link",
+		"urls": {
+			"name": "https://www.freebsd.org/",
+		},
+	},
+	"ZZZYoutube": {
+		"description": "Not a real stream",
+		"type": "youtube",
+		"urls": {
+			"bsdnow300": "https://www.youtube.com/watch?v=3lCq3BsSAHw",
+		},
+	},
+}
