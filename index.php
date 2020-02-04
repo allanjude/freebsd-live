@@ -142,6 +142,10 @@ if (isset($arr_uri[0])) {
           <div class="padding highlightable">
 		<div id="body-inner">
 
+<span id="sidebar-toggle-span">
+  <a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
+</span>
+
 <?php
 if (count($arr_uri) == 0) {
 	/* Home Page */
