@@ -17,7 +17,6 @@ function seapi($credentials, $endpoint, $method = "GET", $body = "", &$error = N
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, strtoupper($method));
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
 	}
-	curl_setopt($ch, CURLOPT_PROXY, 'proxy:3128');
 	curl_setopt($ch, CURLOPT_USERPWD, $credentials);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_HEADER, false);
