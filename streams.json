@@ -3,6 +3,15 @@
 		"description": "FreeBSD Office Hours",
 		"type": "officehours"
 	},
+	"Twitch": {
+		"type": "twitch",
+		"urls": {
+			"Kristof_Provost": {
+				"description": "Kristof talks about his work on if_bridge and CARP",
+				"username": "provostk"
+			}
+		}
+	},
 	"AsiaBSDCon": {
 		"description": "AsiaBSDCon and Tokyo User Group",
 		"type": "scaleengine"
