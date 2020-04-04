@@ -84,12 +84,16 @@ if (isset($arr_uri[0])) {
 				<?php
 				$arr_all_streams = array();
 				switch ($arr_conf['type']) {
+					case "officehours":
 					case "scaleengine":
 						$error = NULL;
 						$secrets = $arr_secrets[$conf];
 						$keys = "{$secrets['cdn_id']}:{$secrets['api_key']}";
 						$arr_all_streams = seapi($keys, "stream_metadata", "GET", NULL, $error);
 						foreach ((array)$arr_all_streams as $stream =>  $arr_details) {
+							if ($stream == "freebsdday") {
+								unset($arr_all_streams[$stream]);
+							}
 							if ($arr_details and (isset($arr_details['type']) and $arr_details['type'] != "origin")) {
 								/* Skip transcodes and other non-origin streams */
 								unset($arr_all_streams[$stream]);
@@ -166,9 +170,40 @@ if (count($arr_uri) == 0) {
 	/* Stream Page */
 	$stream = $arr_uri[1];
 	$config = $arr_streams[$selected_conf];
-	$link = $config['urls'][$stream];
 
 	switch ($config['type']) {
+		case "officehours":
+			$secrets = $arr_secrets[$selected_conf];
+			$keys = "{$secrets['cdn_id']}:{$secrets['api_key']}";
+			$arr_details = seapi($keys, "stream_metadata", "GET", $stream, $error);
+?>
+
+			<h1><?=$selected_conf?> - <?=$stream?></h1>
+			<p><?=$arr_streams[$selected_conf]['description']?></p>
+
+			<script type="text/javascript" src="//<?=$secrets['username']?>-embed.secdn.net/clappr/0.3.8/clappr.min.js"></script>
+			<script type="text/javascript" src="//<?=$secrets['username']?>-embed.secdn.net/clappr/0.3.8/level-selector.min.js"></script>
+
+			<div id="se_video_embed"></div>
+
+			<script type="text/javascript">
+			var player = new Clappr.Player({
+			       source: 'https://<?=$secrets['username']?>-hls.secdn.net/<?=$secrets['username']?>-channel/play/<?=$stream?>.smil/playlist.m3u8',
+			       parentId: "#se_video_embed",
+			       autoPlay: true ,
+			       poster: 'https://<?=$secrets['username']?>-hls.secdn.net/<?=$secrets['username']?>-channel/play/<?=$stream?>/thumbnail.jpg',
+			       width: '720',
+			       height: '400',
+			       plugins: {core: [LevelSelector], playback: []},
+			});
+			</script>
+
+			<p><a href="rtmp://<?=$secrets['username']?>-vsn.secdn.net/<?=$secrets['username']?>-channel/play/<?=$stream?>">RTMP Link (Lower Latency)</a></p>
+
+			<iframe src="https://kiwiirc.com/client/irc.geekshed.net/?nick=BSD_?&theme=cli#freebsd" style="border:0; width:100%; height:540px;"></iframe>
+
+<?php
+			break;
 		case "scaleengine":
 			$secrets = $arr_secrets[$selected_conf];
 			$keys = "{$secrets['cdn_id']}:{$secrets['api_key']}";

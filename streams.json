@@ -1,4 +1,8 @@
 {
+	"FreeBSD": {
+		"description": "FreeBSD Office Hours",
+		"type": "officehours"
+	},
 	"AsiaBSDCon": {
 		"description": "AsiaBSDCon and Tokyo User Group",
 		"type": "scaleengine"
@@ -30,19 +34,5 @@
 	"PLUG": {
 		"description": "Portland Linux/BSD User Group",
 		"type": "scaleengine"
-	},
-	"ZZZLink": {
-		"description": "A link",
-		"type": "link",
-		"urls": {
-			"name": "https://www.freebsd.org/"
-		}
-	},
-	"ZZZYoutube": {
-		"description": "Not a real stream",
-		"type": "youtube",
-		"urls": {
-			"bsdnow300": "https://www.youtube.com/embed/3lCq3BsSAHw"
-		}
 	}
 }
