@@ -89,7 +89,7 @@ if (isset($arr_uri[0])) {
 						$error = NULL;
 						$secrets = $arr_secrets[$conf];
 						$keys = "{$secrets['cdn_id']}:{$secrets['api_key']}";
-						$arr_all_streams = seapi($keys, "stream_metadata", "GET", NULL, $error);
+						$arr_all_streams = seapi($keys, "stream_metadata", "GET", NULL, NULL, $error);
 						foreach ((array)$arr_all_streams as $stream =>  $arr_details) {
 							if ($stream == "freebsdday") {
 								unset($arr_all_streams[$stream]);
@@ -176,7 +176,7 @@ if (count($arr_uri) == 0) {
 		case "officehours":
 			$secrets = $arr_secrets[$selected_conf];
 			$keys = "{$secrets['cdn_id']}:{$secrets['api_key']}";
-			$arr_details = seapi($keys, "stream_metadata", "GET", $stream, $error);
+			$arr_details = seapi($keys, "stream_metadata", "GET", $stream, NULL, $error);
 ?>
 
 			<h1><?=$selected_conf?> - <?=$stream?></h1>
@@ -208,7 +208,7 @@ if (count($arr_uri) == 0) {
 		case "scaleengine":
 			$secrets = $arr_secrets[$selected_conf];
 			$keys = "{$secrets['cdn_id']}:{$secrets['api_key']}";
-			$arr_details = seapi($keys, "stream_metadata", "GET", $stream, $error);
+			$arr_details = seapi($keys, "stream_metadata", "GET", $stream, NULL, $error);
 ?>
 
 			<h1><?=$selected_conf?> - <?=$stream?></h1>

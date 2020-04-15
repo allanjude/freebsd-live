@@ -1,13 +1,13 @@
 <?php
 
-function seapi($credentials, $endpoint, $method = "GET", $body = "", &$error = NULL, $timeout=180)
+function seapi($credentials, $endpoint, $method = "GET", $item = "", $body = "", &$error = NULL, $timeout=180)
 {
 	$request = "{invalid}";
 	$ch = curl_init();
 
 	if (strtoupper($method) == "GET")
 	{
-		$request = "https://api.scaleengine.net/dev/v2/{$endpoint}/?{$body}";
+		$request = "https://api.scaleengine.net/dev/v2/{$endpoint}/{$item}?{$body}";
 		curl_setopt($ch, CURLOPT_URL, $request);
 	}
 	else
