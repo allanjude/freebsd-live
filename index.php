@@ -205,8 +205,6 @@ if (count($arr_uri) == 0) {
 			});
 			</script>
 
-			<p><a href="rtmp://<?=$secrets['username']?>-vsn.secdn.net/<?=$secrets['username']?>-channel/play/<?=$stream?>">RTMP Link (Lower Latency)</a></p>
-
 			<? if (isset($arr_streams[$selected_conf]['chatroom'])):
 				$chatroom = $arr_streams[$selected_conf]['chatroom'];
 				if (!trim($chatroom) or $chatroom == "auto") {
