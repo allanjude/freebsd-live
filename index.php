@@ -83,30 +83,28 @@ if (isset($arr_uri[0])) {
 
 				<?php
 				$arr_all_streams = array();
-				switch ($arr_conf['type']) {
-					case "officehours":
-					case "scaleengine":
-						$error = NULL;
-						$secrets = $arr_secrets[$conf];
-						$keys = "{$secrets['cdn_id']}:{$secrets['api_key']}";
-						$arr_all_streams = seapi($keys, "stream_metadata", "GET", NULL, NULL, $error);
-						foreach ((array)$arr_all_streams as $stream =>  $arr_details) {
-							if ($stream == "freebsdday") {
-								unset($arr_all_streams[$stream]);
+				if ($selected_conf == $conf) {
+					switch ($arr_conf['type']) {
+						case "scaleengine":
+							$error = NULL;
+							$secrets = $arr_secrets[$conf];
+							$keys = "{$secrets['cdn_id']}:{$secrets['api_key']}";
+							$arr_all_streams = seapi($keys, "stream_metadata", "GET", NULL, NULL, $error);
+							foreach ((array)$arr_all_streams as $stream =>  $arr_details) {
+								if ($arr_details and (isset($arr_details['type']) and $arr_details['type'] != "origin") and $arr_details['type'] != "channel")) {
+									/* Skip transcodes and other non-origin streams */
+									unset($arr_all_streams[$stream]);
+								}
 							}
-							if ($arr_details and (isset($arr_details['type']) and $arr_details['type'] != "origin")) {
-								/* Skip transcodes and other non-origin streams */
-								unset($arr_all_streams[$stream]);
-							}
-						}
-						break;
-					case "youtube":
-					case "twitch":
-						$arr_all_streams = $arr_conf['urls'];
-						break;
-					case "link":
-						$arr_all_streams = $arr_conf['urls'];
-						break;
+							break;
+						case "youtube":
+						case "twitch":
+							$arr_all_streams = $arr_conf['urls'];
+							break;
+						case "link":
+							$arr_all_streams = $arr_conf['urls'];
+							break;
+					}
 				}
 				if ($arr_all_streams):
 					foreach ($arr_all_streams as $stream => $arr_details):?>
