@@ -67,7 +67,7 @@ if (isset($arr_uri[0])) {
 
 			<?php foreach ($arr_streams as $conf => $arr_conf): ?>
 
-			<li data-nav-id="/<?=$conf?>/" title="<?=$conf?>" class="dd-item parent">
+			<li data-nav-id="/<?=$conf?>/" title="<?=$conf?>" class="dd-item parent <?if ($selected_conf == $conf):?>active<?endif;?>">
 				<a href="/<?=$conf?>/">
 
 					<?php if ($selected_conf == $conf):?>
@@ -79,7 +79,7 @@ if (isset($arr_uri[0])) {
 					<?=$conf?>
 
 				</a>
-				<ul class="ancestor-range-pages">
+				<ul class="range-sections">
 
 				<?php
 				$arr_all_streams = array();
