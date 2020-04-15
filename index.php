@@ -91,7 +91,7 @@ if (isset($arr_uri[0])) {
 							$keys = "{$secrets['cdn_id']}:{$secrets['api_key']}";
 							$arr_all_streams = seapi($keys, "stream_metadata", "GET", NULL, NULL, $error);
 							foreach ((array)$arr_all_streams as $stream =>  $arr_details) {
-								if ($arr_details and (isset($arr_details['type']) and $arr_details['type'] != "origin") and $arr_details['type'] != "channel")) {
+								if ($arr_details and (isset($arr_details['type']) and $arr_details['type'] != "origin") and $arr_details['type'] != "channel") {
 									/* Skip transcodes and other non-origin streams */
 									unset($arr_all_streams[$stream]);
 								}
