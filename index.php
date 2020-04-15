@@ -183,8 +183,8 @@ if (count($arr_uri) == 0) {
 			<h1><?=$selected_conf?> - <?=$stream?></h1>
 			<p><?=$arr_streams[$selected_conf]['description']?></p>
 			<?
-			if ($arr_details === NULL) {
-				echo "<p>This stream is not currently live, a replay may be available</p>";
+			if ($arr_details === NULL or $arr_details === false) {
+				echo "<h3>This stream is not currently live, a replay may be available</h3>";
 			}
 			?>
 
