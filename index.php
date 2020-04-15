@@ -111,7 +111,7 @@ if (isset($arr_uri[0])) {
 
 					<li data-nav-id="/<?=$conf?>/<?=$stream?>/" title="<?=$conf?> - <?=$stream?>" class="dd-item ">
 						<a href="/<?=$conf?>/<?=$stream?>/">
-							<i class="fa <?=($arr_details === false) ? "fa-angle-right" : "fa-signal"?> papers-menu-item"></i>
+							<i class="fa <?=($arr_details === false or $arr_details === NULL) ? "fa-angle-right" : "fa-signal"?> papers-menu-item"></i>
 							 <?=str_replace("_", " ", $stream)?>
 						</a>
 					</li>
