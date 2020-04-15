@@ -1,7 +1,8 @@
 {
 	"FreeBSD": {
 		"description": "FreeBSD Office Hours",
-		"type": "officehours"
+		"type": "scaleengine",
+		"chatroom": "freebsd"
 	},
 	"Twitch": {
 		"type": "twitch",
@@ -18,11 +19,13 @@
 	},
 	"BSDCan": {
 		"description": "BSDCan",
-		"type": "scaleengine"
+		"type": "scaleengine",
+		"chatroom": "auto"
 	},
 	"BSDNow": {
 		"description": "BSDNow.tv Weekly Podcast",
-		"type": "scaleengine"
+		"type": "scaleengine",
+		"chatroom": "bsdnow"
 	},
 	"EuroBSDCon": {
 		"description": "EuroBSDCon",
@@ -34,7 +37,8 @@
 	},
 	"BSDPL": {
 		"description": "Polish BSD User Group",
-		"type": "scaleengine"
+		"type": "scaleengine",
+		"chatroom": "pdxlinux"
 	},
 	"NYCBUG": {
 		"description": "New York City BSD User Group",

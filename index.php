@@ -201,7 +201,18 @@ if (count($arr_uri) == 0) {
 
 			<p><a href="rtmp://<?=$secrets['username']?>-vsn.secdn.net/<?=$secrets['username']?>-channel/play/<?=$stream?>">RTMP Link (Lower Latency)</a></p>
 
-			<iframe src="https://kiwiirc.com/client/irc.geekshed.net/?nick=BSD_?&theme=cli#freebsd" style="border:0; width:100%; height:540px;"></iframe>
+			<? if (isset($arr_streams[$selected_conf]['chatroom'])):
+				$chatroom = $arr_streams[$selected_conf]['chatroom'];
+				if (!trim($chatroom) or $chatroom == "auto") {
+					$chatroom = "${selected_conf}-${stream}";
+				}
+			?>
+
+			<iframe src="https://kiwiirc.com/client/irc.geekshed.net/?nick=BSD_?&theme=cli#<?=$chatroom?>" style="border:0; width:100%; height:540px;"></iframe>
+
+			<?
+			endif;
+			?>
 
 <?php
 			break;
