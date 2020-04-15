@@ -67,7 +67,7 @@ if (isset($arr_uri[0])) {
 
 			<?php foreach ($arr_streams as $conf => $arr_conf): ?>
 
-			<li data-nav-id="/<?=$conf?>/" title="<?=$conf?>" class="dd-item parent <?if ($selected_conf == $conf):?>active<?endif;?>">
+			<li data-nav-id="/<?=$conf?>/" title="<?=$conf?>" class="dd-item <?if ($selected_conf == $conf):?>parent active<?endif;?>">
 				<a href="/<?=$conf?>/">
 
 					<?php if ($selected_conf == $conf):?>
