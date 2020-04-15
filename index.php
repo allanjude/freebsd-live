@@ -176,11 +176,17 @@ if (count($arr_uri) == 0) {
 		case "officehours":
 			$secrets = $arr_secrets[$selected_conf];
 			$keys = "{$secrets['cdn_id']}:{$secrets['api_key']}";
+			$arr_s = seapi($keys, "streams", "GET", $stream, NULL, $error);
 			$arr_details = seapi($keys, "stream_metadata", "GET", $stream, NULL, $error);
 ?>
 
 			<h1><?=$selected_conf?> - <?=$stream?></h1>
 			<p><?=$arr_streams[$selected_conf]['description']?></p>
+			<?
+			if ($arr_details === NULL) {
+				echo "<p>This stream is not currently live, a replay may be available</p>";
+			}
+			?>
 
 			<script type="text/javascript" src="//<?=$secrets['username']?>-embed.secdn.net/clappr/0.3.8/clappr.min.js"></script>
 			<script type="text/javascript" src="//<?=$secrets['username']?>-embed.secdn.net/clappr/0.3.8/level-selector.min.js"></script>
@@ -189,10 +195,10 @@ if (count($arr_uri) == 0) {
 
 			<script type="text/javascript">
 			var player = new Clappr.Player({
-			       source: 'https://<?=$secrets['username']?>-hls.secdn.net/<?=$secrets['username']?>-channel/play/<?=$stream?>.smil/playlist.m3u8',
+			       source: '<?=$arr_s['playback_url']?>',
 			       parentId: "#se_video_embed",
 			       autoPlay: true ,
-			       poster: 'https://<?=$secrets['username']?>-hls.secdn.net/<?=$secrets['username']?>-channel/play/<?=$stream?>/thumbnail.jpg',
+			       poster: '<?=$arr_s['thumbnail_url']?>',
 			       width: '720',
 			       height: '400',
 			       plugins: {core: [LevelSelector], playback: []},
