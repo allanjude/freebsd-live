@@ -173,7 +173,7 @@ if (count($arr_uri) == 0) {
 	$config = $arr_streams[$selected_conf];
 
 	switch ($config['type']) {
-		case "officehours":
+		case "scaleengine":
 			$secrets = $arr_secrets[$selected_conf];
 			$keys = "{$secrets['cdn_id']}:{$secrets['api_key']}";
 			$arr_s = seapi($keys, "streams", "GET", $stream, NULL, $error);
@@ -217,36 +217,6 @@ if (count($arr_uri) == 0) {
 			<?
 			endif;
 			?>
-
-<?php
-			break;
-		case "scaleengine":
-			$secrets = $arr_secrets[$selected_conf];
-			$keys = "{$secrets['cdn_id']}:{$secrets['api_key']}";
-			$arr_details = seapi($keys, "stream_metadata", "GET", $stream, NULL, $error);
-?>
-
-			<h1><?=$selected_conf?> - <?=$stream?></h1>
-			<p><?=$arr_streams[$selected_conf]['description']?></p>
-
-			<script type="text/javascript" src="//<?=$secrets['username']?>-embed.secdn.net/clappr/0.3.8/clappr.min.js"></script>
-			<script type="text/javascript" src="//<?=$secrets['username']?>-embed.secdn.net/clappr/0.3.8/level-selector.min.js"></script>
-			
-			<div id="se_video_embed"></div>
-			
-			<script type="text/javascript">
-			var player = new Clappr.Player({
-			       source: 'https://<?=$secrets['username']?>-hls.secdn.net/<?=$secrets['username']?>-live/play/<?=$stream?>.smil/playlist.m3u8',
-			       parentId: "#se_video_embed",
-			       autoPlay: true ,
-			       poster: 'https://<?=$secrets['username']?>-hls.secdn.net/<?=$secrets['username']?>-live/play/<?=$stream?>/thumbnail.jpg',
-			       width: '720',
-			       height: '400',
-			       plugins: {core: [LevelSelector], playback: []},
-			});
-			</script>
-
-			<p><a href="rtmp://<?=$secrets['username']?>-vsn.secdn.net/<?=$secrets['username']?>-live/play/<?=$stream?>">RTMP Link (Lower Latency)</a></p>
 
 <?php
 			break;
