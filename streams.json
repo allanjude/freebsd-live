@@ -10,6 +10,10 @@
 			"Kristof_Provost": {
 				"description": "Kristof talks about his work on if_bridge and CARP",
 				"username": "provostk"
+			},
+			"Tom_Jones": {
+				"description": "Tom records his hardware hacking tutorial",
+				"username": "tjhacking"
 			}
 		}
 	},
