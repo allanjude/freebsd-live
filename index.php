@@ -242,6 +242,15 @@ if (count($arr_uri) == 0) {
 			<?php
 			break;
 			
+		case "text":
+			?>
+
+			<h1><?=$arr_streams[$selected_conf]['description']?></h1>
+			<?=$arr_streams[$selected_conf]['text']?>
+
+			<?php
+			break;
+
 		case "link":
 			?>
 
