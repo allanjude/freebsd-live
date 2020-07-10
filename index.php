@@ -158,7 +158,7 @@ if (count($arr_uri) == 0) {
 			<p>Streams may only be available while the events is in progress.</p>
 
 <?php
-} elseif (count($arr_uri) == 1) {
+} elseif (count($arr_uri) == 1 and $arr_streams[$selected_conf]['type'] != "text") {
 	/* Conference Page */
 ?>
 
