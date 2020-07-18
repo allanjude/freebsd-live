@@ -19,6 +19,10 @@
 			"Tom_Jones": {
 				"description": "Tom records his hardware hacking tutorial",
 				"username": "tjhacking"
+			},
+			"Steve_Wills": {
+				"description": "Steve streams ports hacking",
+				"username": "swills6"
 			}
 		}
 	},
