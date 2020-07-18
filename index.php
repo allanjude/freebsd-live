@@ -237,7 +237,7 @@ if (count($arr_uri) == 0) {
 
 			<h1><?=$selected_conf?> - <?=str_replace("_", " ", $stream)?></h1>
 			<p><?=$arr_streams[$selected_conf]['description']?></p>
-			<iframe width="720" height="400" src="<?=$arr_streams[$selected_conf]['urls'][$stream]['url']?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<iframe width="720" height="400" src="<?=$arr_streams[$selected_conf]['urls'][$stream]['url']?>&parent=live.freebsd.org" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 			<?php
 			break;
