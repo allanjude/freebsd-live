@@ -1,6 +1,6 @@
 {
 	"FreeBSD": {
-		"description": "FreeBSD Office Hours",
+		"description": "FreeBSD Office Hours and FreeBSD Friday streams",
 		"type": "scaleengine",
 		"chatroom": "freebsd"
 	},
