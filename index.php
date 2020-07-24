@@ -178,6 +178,7 @@ if (count($arr_uri) == 0) {
 			$arr_details = seapi($keys, "stream_metadata", "GET", $stream, NULL, $error);
 ?>
 
+		<div id="se_container" style="max-width: 840px">
 			<h1><?=$selected_conf?> - <?=$stream?></h1>
 			<p><?=$arr_streams[$selected_conf]['description']?></p>
 			<?
@@ -189,9 +190,7 @@ if (count($arr_uri) == 0) {
 			<script type="text/javascript" src="//<?=$secrets['username']?>-embed.secdn.net/clappr/0.3.8/clappr.min.js"></script>
 			<script type="text/javascript" src="//<?=$secrets['username']?>-embed.secdn.net/clappr/0.3.8/level-selector.min.js"></script>
 
-			<div id="se_container" style="max-width: 840px">
-				<div id="se_video_embed"></div>
-			</div>
+			<div id="se_video_embed"></div>
 
 			<script type="text/javascript">
 			var player = new Clappr.Player({
@@ -238,6 +237,7 @@ if (count($arr_uri) == 0) {
 			<p>Direct Stream: <a href="<?=$arr_s['playback_url']?>"><?=$arr_s['playback_url']?></a></p>
 
 			<p>IRC Chat: irc.geekshed.net #<?=$chatroom?></p>
+		</div>
 
 			<?
 			endif;
