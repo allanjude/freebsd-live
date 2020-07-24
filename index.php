@@ -201,6 +201,29 @@ if (count($arr_uri) == 0) {
 			       height: '400',
 			       plugins: {core: [LevelSelector], playback: []},
 			});
+
+			function resizePlayer(){
+				var aspectRatio = 9/16,
+				newWidth = document.getElementById('se_video').parentElement.offsetWidth,
+				newHeight = 2 * Math.round(newWidth * aspectRatio/2);
+				player.resize({width: newWidth, height: newHeight});
+			}
+
+			window.onload = (function(){
+				resizePlayer();
+				var addEventListener = (function() {
+					if(document.addEventListener) {
+						return function(element, event, handler) {
+							element.addEventListener(event, handler, false);
+						};
+					} else {
+						return function(element, event, handler) {
+							element.attachEvent('on' + event, handler);
+						};
+					}
+				}());
+				addEventListener(window, 'resize', resizePlayer);
+			});
 			</script>
 
 			<? if (isset($arr_streams[$selected_conf]['chatroom'])):
