@@ -189,7 +189,9 @@ if (count($arr_uri) == 0) {
 			<script type="text/javascript" src="//<?=$secrets['username']?>-embed.secdn.net/clappr/0.3.8/clappr.min.js"></script>
 			<script type="text/javascript" src="//<?=$secrets['username']?>-embed.secdn.net/clappr/0.3.8/level-selector.min.js"></script>
 
-			<div id="se_video_embed"></div>
+			<div id="se_container" style="max-width: 840px">
+				<div id="se_video_embed"></div>
+			</div>
 
 			<script type="text/javascript">
 			var player = new Clappr.Player({
@@ -197,14 +199,12 @@ if (count($arr_uri) == 0) {
 			       parentId: "#se_video_embed",
 			       autoPlay: true ,
 			       poster: '<?=$arr_s['thumbnail_url']?>',
-			       width: '720',
-			       height: '400',
 			       plugins: {core: [LevelSelector], playback: []},
 			});
 
 			function resizePlayer(){
 				var aspectRatio = 9/16,
-				newWidth = document.getElementById('se_video').parentElement.offsetWidth,
+				newWidth = document.getElementById('se_video_embed').parentElement.offsetWidth,
 				newHeight = 2 * Math.round(newWidth * aspectRatio/2);
 				player.resize({width: newWidth, height: newHeight});
 			}
@@ -233,7 +233,7 @@ if (count($arr_uri) == 0) {
 				}
 			?>
 
-			<iframe src="https://kiwiirc.com/client/irc.geekshed.net/?nick=BSD_?&theme=cli#<?=$chatroom?>" style="border:0; width:100%; height:540px;"></iframe>
+			<iframe src="https://kiwiirc.com/client/irc.geekshed.net/?nick=BSD_?&theme=cli#<?=$chatroom?>" style="border:0; width:100%; height:420px;"></iframe>
 
 			<p>Direct Stream: <a href="<?=$arr_s['playback_url']?>"><?=$arr_s['playback_url']?></a></p>
 
