@@ -197,9 +197,9 @@ if (count($arr_uri) == 0) {
 			var player = new Clappr.Player({
 			       source: '<?=$arr_s['playback_url']?>',
 			       parentId: "#se_video_embed",
-			       autoPlay: true ,
+			       autoPlay: true,
 			       poster: '<?=$arr_s['thumbnail_url']?>',
-			       plugins: {core: [LevelSelector], playback: []},
+			       plugins: {core: [LevelSelector], playback: []}
 			});
 
 			function resizePlayer(){
