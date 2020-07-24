@@ -212,6 +212,7 @@ if (count($arr_uri) == 0) {
 
 			<iframe src="https://kiwiirc.com/client/irc.geekshed.net/?nick=BSD_?&theme=cli#<?=$chatroom?>" style="border:0; width:100%; height:540px;"></iframe>
 
+			<p>Direct Stream: <a href="<?=$arr_s['playback_url']?>"><?=$arr_s['playback_url']?></a></p>
 
 			<p>IRC Chat: irc.geekshed.net #<?=$chatroom?></p>
 
